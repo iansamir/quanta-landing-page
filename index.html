@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .text {
+            margin-left: 10vw;
+            width: 70vw;
+            font-family: Verdana, Geneva, Tahoma, sans-serif
+        }
+    </style>
+    <script>
+        function updateYTDValues() {
+            const elements = document.querySelectorAll(".ytd");
+            elements.forEach(function (element) {
+                const baseValue = parseFloat(element.getAttribute("data-base-value"));
+                const min = baseValue - 0.05; // Adjust the interval as needed
+                const max = baseValue + 0.05; // Adjust the interval as needed
+                const randomValue = (Math.random() * (max - min) + min).toFixed(2);
+                element.textContent = randomValue + "% YTD";
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            updateYTDValues(); // Initial update
+            setInterval(updateYTDValues, 500); // Update every 0.5 seconds
+        });
+    </script>
+</head>
+
+<body>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="text">
+        Quanta Ventures
+        <br />
+        <hr>
+        <br />
+        An artificial intelligence driven hedge fund that
+        utilizes modern advances in AI to create trend-following strategies.
+        Investors may choose a weighted portfolio of our five primary strategies:
+        <br />
+        <br />
+        1. Long-short large-cap equities momentum
+        (<span class="ytd" data-base-value="44.4" style="color: #32CD32;">44.4% YTD</span>)<br />
+        2. Long-short small-cap crypto momentum
+        (<span class="ytd" data-base-value="16.3" style="color: #32CD32;">16.3% YTD</span>)<br />
+        3. AI sentiment signal oil futures
+        (<span class="ytd" data-base-value="127.0" style="color: #32CD32;">127.0% YTD</span>)<br />
+        4. Mean-reversion equities
+        (<span class="ytd" data-base-value="-1.83" style="color: #FF6347;">-1.83% YTD</span>)<br />
+        5. Crypto Liquidity Pool Arbitrage
+        (<span class="ytd" data-base-value="29.9" style="color: #32CD32;">29.9% YTD</span>)<br />
+        <br />
+        Contact: <a href="mailto:investors@quantaventures.ai">evan@quantaventures.ai</a>
+    </div>
+</body>
+
+</html>
